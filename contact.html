@@ -175,7 +175,7 @@
           <form
             name="contact"
             method="POST"
-            action="contact.html?submitted=true"
+            action="contact.html?submitted=true#enquiry-form"
             data-netlify="true"
             netlify-honeypot="bot-field"
             id="contactForm"
@@ -183,6 +183,7 @@
           >
             <!-- Netlify hidden fields -->
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="subject" id="formSubject" value="New Blooming Tales Enquiry" />
             <p hidden aria-hidden="true">
               <label>Don't fill this out if you're human: <input name="bot-field" /></label>
             </p>

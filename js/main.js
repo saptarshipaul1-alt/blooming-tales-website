@@ -86,20 +86,22 @@
         return;
       }
 
-      /*
-        When deployed to Netlify, the form submits natively and
-        Netlify handles the POST. The success div below is shown
-        for development previews only (not on Netlify where the
-        page redirects). To customize Netlify's redirect, add:
-          action="/thank-you.html"
-        to the <form> element in contact.html.
-      */
+      // Set dynamic email subject so Netlify uses it as notification subject
+      var subjectField = document.getElementById('formSubject');
+      var firstNameVal = (document.getElementById('firstName') || {}).value || '';
+      var lastNameVal  = (document.getElementById('lastName')  || {}).value || '';
+      var fullName     = (firstNameVal + ' ' + lastNameVal).trim();
+      if (subjectField && fullName) {
+        subjectField.value = 'New Blooming Tales enquiry from ' + fullName;
+      }
     });
 
-    // Show success message if URL has ?submitted=true (dev testing)
+    // Show success message if URL has ?submitted=true
     if (window.location.search.includes('submitted=true') && formSuccess) {
       contactForm.style.display = 'none';
       formSuccess.style.display  = 'block';
+      // Scroll success message into view smoothly
+      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
 
