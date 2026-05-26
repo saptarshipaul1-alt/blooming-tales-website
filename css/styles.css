@@ -1183,7 +1183,8 @@ textarea {
   :root { --spacing-section: 72px; }
 
   .hero-inner              { grid-template-columns: 1fr; }
-  .hero-image              { display: none; }
+  .hero-image              { display: block; width: 100%; }
+  .hero-image-wrap         { aspect-ratio: 16/9; max-height: 340px; }
   .about-teaser .about-inner { grid-template-columns: 1fr; }
   .about-photo             { max-width: 100%; }
   .about-full-grid         { grid-template-columns: 1fr; }
